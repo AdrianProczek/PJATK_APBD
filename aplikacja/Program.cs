@@ -11,7 +11,8 @@ public class Program
 
     public static int FindMaxValue(int[] numbers)
     {
-        if (numbers_error_v2 == null || numbers.Length == 0)
+
+        if (numbers == null || numbers.Length == 0)
         {
             throw new ArgumentException("Tablica nie może być pusta.");
         }
