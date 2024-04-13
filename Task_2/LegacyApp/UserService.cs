@@ -6,23 +6,21 @@ namespace LegacyApp
     {
         public bool AddUser(string firstName, string lastName, string email, DateTime dateOfBirth, int clientId)
         {
-            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName))
+
+            if Validators.IsNameValid(firstName, lastName))
             {
-                return false;
+                return true;
+            }
+            IsEmailValid
+
+            if (Validators.IsEmailValid(email))
+            {
+                return true;
             }
 
-            if (!email.Contains("@") && !email.Contains("."))
+            if (Validators.IsDateValid(dateOfBirth))
             {
-                return false;
-            }
-
-            var now = DateTime.Now;
-            int age = now.Year - dateOfBirth.Year;
-            if (now.Month < dateOfBirth.Month || (now.Month == dateOfBirth.Month && now.Day < dateOfBirth.Day)) age--;
-
-            if (age < 21)
-            {
-                return false;
+                return true;
             }
 
             var clientRepository = new ClientRepository();
