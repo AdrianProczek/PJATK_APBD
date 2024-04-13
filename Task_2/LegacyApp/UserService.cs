@@ -7,20 +7,20 @@ namespace LegacyApp
         public bool AddUser(string firstName, string lastName, string email, DateTime dateOfBirth, int clientId)
         {
 
-            if Validators.IsNameValid(firstName, lastName))
+            if (!Validators.IsNameValid(firstName, lastName))
             {
-                return true;
+                return false;
             }
             IsEmailValid
 
-            if (Validators.IsEmailValid(email))
+            if (!Validators.IsEmailValid(email))
             {
-                return true;
+                return false;
             }
 
-            if (Validators.IsDateValid(dateOfBirth))
+            if (!Validators.IsDateValid(dateOfBirth))
             {
-                return true;
+                return false;
             }
 
             var clientRepository = new ClientRepository();
