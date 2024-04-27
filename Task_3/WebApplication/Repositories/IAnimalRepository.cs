@@ -5,7 +5,8 @@ namespace WebApplication.Repositories
     public class IAnimalRepository
     {
         IEnumerable<Animal> GetAnimals(string orderBy);
-        IAnimalRepository GetAnimalById(int id);
+
+        Animal GetAnimalById(int id);
 
         public int CreateAnimal(Animal animal);
 
