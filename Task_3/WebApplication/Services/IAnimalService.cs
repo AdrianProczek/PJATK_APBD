@@ -1,13 +1,12 @@
 ﻿using WebApplication.Models;
 
-namespace WebApplication.Repositories
+namespace WebApplication.Services
 {
-    public interface IAnimalRepository
+    public interface IAnimalService
     {
         IEnumerable<Animals> GetAnimals(string orderBy);
-        Animals GetAnimal(int id);
         int CreateAnimal(Animals animal);
         int UpdateAnimal(Animals animal);
-        int DeleteAnimal(int id);
+        int DeleteAnimal(int idAnimal);
     }
 }
