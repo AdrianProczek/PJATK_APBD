@@ -14,6 +14,6 @@
 
         public string Pesel { get; set; } = null!;
 
-        public virtual ICollection<ClientTrip> ClientTrips { get; set; } = new List<ClientTrips>();
+        public virtual ICollection<ClientTrip> ClientTrips { get; set; } = new List<ClientTrip>();
     }
 }

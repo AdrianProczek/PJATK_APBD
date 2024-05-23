@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Zadanie7.Interfaces;
 
 namespace Zadanie7.Controllers
 {
@@ -6,10 +7,17 @@ namespace Zadanie7.Controllers
     [ApiController]
     public class TripController : ControllerBase
     {
+        private readonly ITripsRepository _tripsRepository;
+        public TripController(ITripsRepository tripsRepository) 
+        {
+            _tripsRepository = tripsRepository;
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetTrips()
         {
-
+            var result = await _tripsRepository.GetTripsAsync();
+            return Ok(result);
         }
     }
 }

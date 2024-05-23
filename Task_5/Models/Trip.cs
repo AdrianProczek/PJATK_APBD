@@ -1,6 +1,6 @@
 ﻿namespace Zadanie7.Models
 {
-    public class Trip
+    public partial class Trip
     {
         public int IdTrip { get; set; }
         public string Name { get; set; } = null!;

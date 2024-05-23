@@ -14,7 +14,24 @@ namespace Zadanie7.Repositories
         }
         public Task<IEnumerable<TripDTO>> GetTripsAsync()
         {
-            throw new NotImplementedException();
+            var result = _contex
+                .Trips
+                .Select(e =>
+                new TripDTO
+                {
+                    Name = e.Name,
+                    Description = e.Description,
+                    DateFrom = DateOnly.FromDateTime(e.DateFrom),
+                    DateTo = DateOnly.FromDateTime(e.DateTo),
+                    MaxPeople = e.MaxPeople,
+                    Countries = e.Countries
+                        .Select(e =>
+                        new CountryDTO { Name = e.Name}),
+                    Clients = e.ClientTrips
+                        .Select(e => new ClientDTO { FirstName = e.IdClientNavigation.FirstName, LastName = e.IdClientNavigation.LastName }),
+                }).ToList();
+
+            return result;
         }
     }
 }
