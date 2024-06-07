@@ -1,9 +1,12 @@
-﻿namespace Zad_6.Models
-namespace APBD_Zadanie_6.Repositories.Repository
+﻿using Zad_6.DTOs;
+using Zad_6.Repositories.Interfaces;
+using Zad_6.Models;
+
+namespace Zad_6.Repositories.Repository
 {
     public class HospitalRepository : IHospitalRepository
     {
-        private readonly Context _context;
+        private readonly ContextBoundObject _context;
 
         public HospitalRepository(Context context)
         {
@@ -12,10 +15,11 @@ namespace APBD_Zadanie_6.Repositories.Repository
 
         public async Task<string> AddPrescriptionAsync(PrescriptionRequestDTO request)
         {
-            _context.Prescriptions.Add(request);
+            _context.Prescription.Add(request);
             await _context.SaveChangesAsync();
+
             return "success";
         }
+
     }
-}
 }

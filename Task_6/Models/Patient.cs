@@ -7,6 +7,6 @@
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
 
-        public virtual ICollection<Prescriptions> Prescriptions { get; set; } = new List<Prescriptions>()
+        public virtual ICollection<Prescriptions> Prescriptions { get; set; } = new List<Prescriptions>();
     }
 }
